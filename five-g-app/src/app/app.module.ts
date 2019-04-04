@@ -14,6 +14,7 @@ import { RegisterComponent } from "./components/register/register.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { LocationComponent } from "./components/location/location.component";
+import { NetworkViewComponent } from './network-view/network-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LocationComponent } from "./components/location/location.component";
     RegisterComponent,
     DashboardComponent,
     NotFoundComponent,
-    LocationComponent
+    LocationComponent,
+    NetworkViewComponent
   ],
   imports: [
     BrowserModule,
