@@ -39,4 +39,9 @@ export class NetworkViewComponent implements OnInit {
     })
   }
 
+  // may need this here if allowing status change from table rather than map
+  setStatus(event){
+    //TODO
+  }
+
 }

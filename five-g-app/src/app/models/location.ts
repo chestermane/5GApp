@@ -6,4 +6,6 @@ export interface Location {
   longitude?: string;
   status?: string;
   tower?: string;
+  capacity?: number;
+  traffic?: number;
 }

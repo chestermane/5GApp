@@ -14,8 +14,9 @@
         <th>Cell Tower</th>
         <th>Location (Lon,Lat)</th>
         <th>Network Status</th>
-        <th>Status Change?</th>
+        <!-- <th>Status Change?</th> -->
         <th>Description</th>
+        <th>Capacity (Tbps)</th>
       </tr>
     </thead>
     <tbody>
@@ -23,14 +24,15 @@
         <td>{{element.tower}}</td>
         <td>{{element.longitude}}, {{element.latitude}}</td>
         <td>{{element.status}}</td>
-        <td>
-          <select class="custom-select" value="{{element.status}}">
+        <!-- <td>
+          <select class="custom-select" value="{{element.status}}" (change)=setStatus()>
             <option value="online">Online</option>
             <option value="danger">Danger</option>
             <option value="offline">Offline</option>
           </select>
-        </td>
+        </td> -->
         <td>{{element.description}}</td>
+        <td>{{element.traffic}} / {{element.capacity}}</td>
       </tr>
     </tbody>
   </table>
