@@ -5,8 +5,10 @@
   <div class="col-md-6"></div>
 </div>
 
-<table *ngIf="locations?.length > 0; else noLocations">
-  @TODO Jimmys table of locations goes here
-</table>
+<!-- Jimmy - changed the table tag to div to avoid having a table in a table -->
+<div *ngIf="locations?.length > 0; else noLocations">
+  <!-- Jimmy - I just embedded my component here. Seemed neater than copy pasting. -->
+  <network-view></network-view>
+</div>
 
 <ng-template #noLocations><p>No Locations Avaiable</p></ng-template>

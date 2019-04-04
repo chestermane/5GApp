@@ -1,25 +1,33 @@
-<br>
+<!-- Buttons for selecting a network. -->
 <div class="container">
-  <table class="table table-striped table-dark">
+  <button class="btn btn-outline-success" (click)="switchTable('atl')">Atlanta</button>
+  <button class="btn btn-outline-success" (click)="switchTable('tampa')">Tampa Bay</button>
+  <button class="btn btn-outline-success" (click)="switchTable('detroit')">Detroit</button> <!-- This should have no towers available -->
+</div>
+<!-- Default message if no network selected. -->
+<p style="text-align: center;">{{message}}</p>
+<!-- Table pulling from firebase -->
+<div class="container">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th>Network</th>
         <th>Cell Tower</th>
         <th>Location (Lon,Lat)</th>
         <th>Network Status</th>
+        <th>Status Change?</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let element of elements">
-        <td>{{element.network}}</td>
         <td>{{element.tower}}</td>
         <td>{{element.longitude}}, {{element.latitude}}</td>
+        <td>{{element.status}}</td>
         <td>
           <select class="custom-select" value="{{element.status}}">
-            <option value="Online">Online</option>
-            <option value="Danger">Danger</option>
-            <option value="Offline">Offline</option>
+            <option value="online">Online</option>
+            <option value="danger">Danger</option>
+            <option value="offline">Offline</option>
           </select>
         </td>
         <td>{{element.description}}</td>
