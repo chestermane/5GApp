@@ -35,7 +35,12 @@ export class LocationsService {
     )
     return this.locations;
   }
+
   getTowers(loc){
     return this.afs.collection<Location[]>(loc).valueChanges();
+  }
+
+  setStatus(){
+    
   }
 }
