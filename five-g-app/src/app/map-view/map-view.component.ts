@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 declare let L;
 @Component({
-  selector: 'map-view',
+  selector: 'app-map-view',
   templateUrl: './map-view.component.html',
   styleUrls: ['./map-view.component.css']
 })
