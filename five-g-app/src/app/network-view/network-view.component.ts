@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { LocationsService } from '../service/locations.service';
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { LocationsService } from "../service/locations.service";
 
 @Component({
-  selector: 'network-view',
-  templateUrl: './network-view.component.html',
-  styleUrls: ['./network-view.component.css']
+  selector: "network-view",
+  templateUrl: "./network-view.component.html",
+  styleUrls: ["./network-view.component.css"]
 })
 export class NetworkViewComponent implements OnInit {
   // Mock data below.
@@ -28,18 +28,16 @@ export class NetworkViewComponent implements OnInit {
   }
 
   // called by buttons in template. calls service by passing network name as a string
-  switchTable(loc){
-    this.currentNetwork=loc
-    this.service.getTowers(loc).subscribe(data=>{
-      this.elements=data;
-      console.log("network-view.ts >>>>> Finding towers in "+loc)
-      if(data.length>0){
-        this.message="Towers found.";
+  switchTable(loc) {
+    this.service.getTowers(loc).subscribe(data => {
+      this.elements = data;
+      console.log("network-view.ts >>>>> Finding towers in " + loc);
+      if (data.length > 0) {
+        this.message = "Towers found.";
+      } else {
+        this.message = "No towers online";
       }
-      else{
-        this.message="No towers online"
-      }
-    })
+    });
   }
 
   // may need this here if allowing status change from table rather than map
@@ -49,5 +47,4 @@ export class NetworkViewComponent implements OnInit {
     // console.log("current network: "+ this.currentNetwork)
     this.service.setStatus(this.currentNetwork,id,this.statusSelect.nativeElement.value);
   }
-
 }
