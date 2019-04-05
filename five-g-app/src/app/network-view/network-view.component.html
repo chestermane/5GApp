@@ -1,11 +1,18 @@
 <!-- Buttons for selecting a network. -->
 <div class="container">
-  <button class="btn btn-outline-success" (click)="switchTable('atl')">Atlanta</button>
-  <button class="btn btn-outline-success" (click)="switchTable('tampa')">Tampa Bay</button>
-  <button class="btn btn-outline-success" (click)="switchTable('detroit')">Detroit</button> <!-- This should have no towers available -->
+  <button class="btn btn-outline-success" (click)="switchTable('atl')">
+    Atlanta
+  </button>
+  <button class="btn btn-outline-success" (click)="switchTable('tampa')">
+    Tampa Bay
+  </button>
+  <button class="btn btn-outline-success" (click)="switchTable('detroit')">
+    Detroit
+  </button>
+  <!-- This should have no towers available -->
 </div>
 <!-- Default message if no network selected. -->
-<p style="text-align: center;">{{message}}</p>
+<p style="text-align: center;">{{ message }}</p>
 <!-- Table pulling from firebase -->
 <div class="container">
   <table class="table table-striped">
@@ -21,18 +28,23 @@
     </thead>
     <tbody>
       <tr *ngFor="let element of elements">
-        <td>{{element.tower}}</td>
-        <td>{{element.longitude}}, {{element.latitude}}</td>
-        <td class={{element.status}}>{{element.status|uppercase}}</td>
+        <td>{{ element.tower }}</td>
+        <td>{{ element.longitude }}, {{ element.latitude }}</td>
+        <td class="{{ element.status }}">{{ element.status | uppercase }}</td>
         <td>
-          <select #statusSelect class="custom-select" value="{{element.status}}" (change)=setStatus(element.id)>
-            <option value="online">Online</option>
-            <option value="danger">Danger</option>
-            <option value="offline">Offline</option>
+          <select
+            #statusSelect
+            class="custom-select"
+            value="{{ element.status }}"
+            (change)="setStatus(element)"
+          >
+            <option *ngFor="let option of networkOptions" value="online">{{
+              option
+            }}</option>
           </select>
         </td>
-        <td>{{element.description}}</td>
-        <td>{{element.traffic}} / {{element.capacity}}</td>
+        <td>{{ element.description }}</td>
+        <td>{{ element.traffic }} / {{ element.capacity }}</td>
       </tr>
     </tbody>
   </table>
