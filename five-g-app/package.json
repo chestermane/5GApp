@@ -19,11 +19,8 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
-<<<<<<< Updated upstream
     "angular2-flash-messages": "^3.0.1",
-=======
     "@asymmetrik/ngx-leaflet": "^5.0.1",
->>>>>>> Stashed changes
     "angularfire2": "^5.1.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
