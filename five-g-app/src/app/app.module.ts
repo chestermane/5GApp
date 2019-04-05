@@ -1,10 +1,18 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+<<<<<<< Updated upstream
 import { environment } from "../environments/environment";
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
+=======
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+>>>>>>> Stashed changes
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -40,8 +48,12 @@ import { FlashMessagesModule } from "angular2-flash-messages";
     AngularFireModule.initializeApp(environment.firebase, "5GApp"),
     AngularFirestoreModule,
     AngularFireAuthModule,
+<<<<<<< Updated upstream
     FormsModule,
     FlashMessagesModule.forRoot()
+=======
+    LeafletModule.forRoot()
+>>>>>>> Stashed changes
   ],
   providers: [LocationsService, AuthService],
   bootstrap: [AppComponent]
