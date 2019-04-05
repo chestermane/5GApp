@@ -14,7 +14,7 @@
         <th>Cell Tower</th>
         <th>Location (Lon,Lat)</th>
         <th>Network Status</th>
-        <!-- <th>Status Change?</th> -->
+        <th>Status Change?</th>
         <th>Description</th>
         <th>Capacity (Tbps)</th>
       </tr>
@@ -23,14 +23,14 @@
       <tr *ngFor="let element of elements">
         <td>{{element.tower}}</td>
         <td>{{element.longitude}}, {{element.latitude}}</td>
-        <td>{{element.status}}</td>
-        <!-- <td>
-          <select class="custom-select" value="{{element.status}}" (change)=setStatus()>
+        <td class={{element.status}}>{{element.status|uppercase}}</td>
+        <td>
+          <select #statusSelect class="custom-select" value="{{element.status}}" (change)=setStatus(element.id)>
             <option value="online">Online</option>
             <option value="danger">Danger</option>
             <option value="offline">Offline</option>
           </select>
-        </td> -->
+        </td>
         <td>{{element.description}}</td>
         <td>{{element.traffic}} / {{element.capacity}}</td>
       </tr>

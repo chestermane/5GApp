@@ -1,0 +1,11 @@
+.offline{
+    background-color: red
+}
+
+.online{
+    background-color: limegreen
+}
+
+.danger{
+    background-color: khaki
+}

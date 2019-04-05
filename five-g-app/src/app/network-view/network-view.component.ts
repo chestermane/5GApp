@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { LocationsService } from "../service/locations.service";
 
 @Component({
@@ -15,6 +15,7 @@ export class NetworkViewComponent implements OnInit {
   // variables for actual data
   elements;
   message = "Please select a network to view."; //default message
+  // @ViewChild('statusSelect') statusSelect:ElementRef;
 
   constructor(private service: LocationsService) {}
 
@@ -39,7 +40,9 @@ export class NetworkViewComponent implements OnInit {
   }
 
   // may need this here if allowing status change from table rather than map
-  setStatus(event) {
-    //TODO
+  setStatus(id) {
+    console.log(id);
+    
+    // console.log(this.statusSelect.nativeElement.value)
   }
 }
