@@ -16,7 +16,7 @@ export class NetworkViewComponent implements OnInit {
   elements;
   message="Please select a network to view."; //default message
   @ViewChild('statusSelect') statusSelect:ElementRef;
-
+  currentNetwork="";
 
   constructor(private service:LocationsService) { }
 
@@ -29,6 +29,7 @@ export class NetworkViewComponent implements OnInit {
 
   // called by buttons in template. calls service by passing network name as a string
   switchTable(loc){
+    this.currentNetwork=loc
     this.service.getTowers(loc).subscribe(data=>{
       this.elements=data;
       console.log("network-view.ts >>>>> Finding towers in "+loc)
@@ -43,8 +44,10 @@ export class NetworkViewComponent implements OnInit {
 
   // may need this here if allowing status change from table rather than map
   setStatus(id){
-    console.log(id)
-    console.log(this.statusSelect.nativeElement.value)
+    // console.log(id)
+    // console.log(this.statusSelect.nativeElement.value)
+    // console.log("current network: "+ this.currentNetwork)
+    this.service.setStatus(this.currentNetwork,id,this.statusSelect.nativeElement.value);
   }
 
 }

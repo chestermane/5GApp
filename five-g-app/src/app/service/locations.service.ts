@@ -40,7 +40,22 @@ export class LocationsService {
     return this.afs.collection<Location[]>(loc).valueChanges();
   }
 
-  setStatus(){
-    
+  setStatus(network,id,newStatus){
+    let newDescription:string="";
+    if(newStatus=="online"){
+      newDescription="No issues"
+    }
+    else if(newStatus=="danger"){
+      newDescription="Traffic approaching capacity"
+    }
+    else if(newStatus=="offline"){
+      newDescription="Tower offline"
+    }
+
+    const data={
+      status:newStatus,
+      description:newDescription
+    }
+    this.afs.doc(network+'/'+id).update(data);
   }
 }
