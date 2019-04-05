@@ -23,7 +23,7 @@
       <tr *ngFor="let element of elements">
         <td>{{element.tower}}</td>
         <td>{{element.longitude}}, {{element.latitude}}</td>
-        <td>{{element.status}}</td>
+        <td class={{element.status}}>{{element.status|uppercase}}</td>
         <!-- <td>
           <select class="custom-select" value="{{element.status}}" (change)=setStatus()>
             <option value="online">Online</option>
