@@ -8,4 +8,5 @@ export interface Location {
   tower?: string;
   capacity?: number;
   traffic?: number;
+  network?: string;
 }

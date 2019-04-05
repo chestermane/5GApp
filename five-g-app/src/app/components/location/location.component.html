@@ -4,13 +4,10 @@
   </div>
   <div class="col-md-6"></div>
 </div>
-
 <!-- Jimmy - changed the table tag to div to avoid having a table in a table -->
-<div *ngIf="locations?.length > 0; else noLocations">
+<div>
   <!-- Jimmy - I just embedded my component here. Seemed neater than copy pasting. -->
   <network-view></network-view>
 </div>
 
 <app-map-view></app-map-view>
-
-<ng-template #noLocations><p>No Locations Avaiable</p></ng-template>

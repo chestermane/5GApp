@@ -18,11 +18,12 @@ export class LocationsService {
   location: Observable<Location>;
 
   constructor(private afs: AngularFirestore) {
-    this.locationCollection = afs.collection("5GApp", ref =>
-      ref.orderBy("location", "asc")
+    this.locationCollection = afs.collection("tampa", ref =>
+      ref.orderBy("status", "asc")
     );
   }
 
+  //Get all locations in database
   getLocations(): Observable<Location[]> {
     this.locations = this.locationCollection.snapshotChanges().pipe(
       map(changes => {
@@ -32,10 +33,11 @@ export class LocationsService {
           return data;
         });
       })
-    )
+    );
     return this.locations;
   }
-  getTowers(loc){
+
+  getTowers(loc) {
     return this.afs.collection<Location[]>(loc).valueChanges();
   }
 }

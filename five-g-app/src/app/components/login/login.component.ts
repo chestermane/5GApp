@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { routerNgProbeToken } from "@angular/router/src/router_module";
+import { AuthService } from "../../service/auth.service";
+import { FlashMessagesService } from "angular2-flash-messages";
 
 @Component({
   selector: "app-login",
@@ -11,11 +12,36 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private afAuthService: AuthService,
+    private flashMessage: FlashMessagesService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.afAuthService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.router.navigate(["/"]);
+      } else {
+      }
+    });
+  }
 
   onSubmit() {
-    this.router.navigate(["/dashboard"]);
+    this.afAuthService
+      .login(this.email, this.password)
+      .then(res => {
+        this.flashMessage.show("You are now logged in", {
+          cssClass: "alert-success",
+          timeout: 4000
+        });
+        this.router.navigate(["/dashboard"]);
+      })
+      .catch(err => {
+        this.flashMessage.show(err.message, {
+          cssClass: "alert-danger",
+          timeout: 4000
+        });
+      });
   }
 }

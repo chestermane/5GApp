@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { LocationsService } from '../service/locations.service';
+import { Component, OnInit } from "@angular/core";
+import { LocationsService } from "../service/locations.service";
 
 @Component({
-  selector: 'network-view',
-  templateUrl: './network-view.component.html',
-  styleUrls: ['./network-view.component.css']
+  selector: "network-view",
+  templateUrl: "./network-view.component.html",
+  styleUrls: ["./network-view.component.css"]
 })
 export class NetworkViewComponent implements OnInit {
   // Mock data below.
@@ -14,9 +14,9 @@ export class NetworkViewComponent implements OnInit {
 
   // variables for actual data
   elements;
-  message="Please select a network to view."; //default message
+  message = "Please select a network to view."; //default message
 
-  constructor(private service:LocationsService) { }
+  constructor(private service: LocationsService) {}
 
   ngOnInit() {
     // uncomment below if a default network should be selected on load.
@@ -26,22 +26,20 @@ export class NetworkViewComponent implements OnInit {
   }
 
   // called by buttons in template. calls service by passing network name as a string
-  switchTable(loc){
-    this.service.getTowers(loc).subscribe(data=>{
-      this.elements=data;
-      console.log("network-view.ts >>>>> Finding towers in "+loc)
-      if(data.length>0){
-        this.message="Towers found.";
+  switchTable(loc) {
+    this.service.getTowers(loc).subscribe(data => {
+      this.elements = data;
+      console.log("network-view.ts >>>>> Finding towers in " + loc);
+      if (data.length > 0) {
+        this.message = "Towers found.";
+      } else {
+        this.message = "No towers online";
       }
-      else{
-        this.message="No towers online"
-      }
-    })
+    });
   }
 
   // may need this here if allowing status change from table rather than map
-  setStatus(event){
+  setStatus(event) {
     //TODO
   }
-
 }
